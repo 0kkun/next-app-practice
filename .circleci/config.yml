@@ -1,0 +1,61 @@
+version: 2.1
+
+parameters:
+  project_dir:
+    type: string
+    default: "~/next-app-practice/frontend"
+
+executors:
+  default:
+    working_directory: << pipeline.parameters.project_dir >>
+    docker:
+      - image: cimg/node:14.17.0
+
+commands:
+  restore_yarn:
+    steps:
+      - restore_cache:
+          name: Restore yarn dependencies
+          key: yarn-v1-{{ checksum "frontend/yarn.lock" }}
+  save_yarn:
+    steps:
+      - save_cache:
+          name: Cache yarn dependencies
+          key: yarn-v1-{{ checksum "frontend/yarn.lock" }}
+          # Yarn 1.x
+          paths:
+            - frontend/node_modules
+
+jobs:
+  build:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run:
+          name: Run yarn install
+          command: |
+            cd frontend
+            yarn install
+      - save_yarn
+
+  lint:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_yarn
+      - run: 
+          name: Run lint
+          command: |
+            cd frontend
+            yarn lint
+      - save_yarn
+
+workflows:
+  pull-request:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build

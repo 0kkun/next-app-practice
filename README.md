@@ -32,3 +32,19 @@ frontend配下にある.gitディレクトリを削除し、git initを行う。
 - 各種ライブラリ(バリデーション等)を使用した生産性の高い開発
 - ユニットテスト、結合テスト、UI テストのテスト自動化
 
+## API
+
+- JSON Serverを使ってAPIを用意している。
+- フレームワークはexpressを使用。(コードは`/server`配下)
+- 本アプリで使用しているAPI一覧は下記
+
+| API | パス | HTTPメソッド | 説明 |
+|---|---|---|---|
+| 認証API | /auth/signin | POST | サインイン |
+| 認証API | /auth/signout | POST | サインアウト |
+| ユーザーAPI | /users | GET | 一覧取得 |
+| ユーザーAPI | /users/{id} | GET | 個別取得 |
+| ユーザーAPI | /users/me | GET | 認証済のユーザーを取得 |
+| プロダクトAPI | /products | GET, POST | 一覧取得, 新規追加 |
+| プロダクトAPI | /products/{id} | GET | 個別取得 |
+| 購入API | /purchases | POST | 商品購入 |

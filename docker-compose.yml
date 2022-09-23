@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend:
     build:
-      context: ./docker/frontend
+      context: ./.docker/frontend
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/usr/src/app

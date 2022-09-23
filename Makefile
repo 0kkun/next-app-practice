@@ -1,8 +1,3 @@
-# ***** フロントエンド用 *****
-.PHONY: frontend-start
-frontend-start:
-	cd frontend; yarn dev
-
 .PHONY: lint
 lint:
 	cd frontend; yarn lint
@@ -30,3 +25,15 @@ down:
 .PHONY: frontend
 frontend:
 	docker compose exec frontend bash
+
+.PHONY: backend
+backend:
+	docker compose exec backend bash
+
+.PHONY: backend-start
+backend-start:
+	cd backend; yarn start
+
+.PHONY: frontend-start
+frontend-start:
+	cd backend; yarn dev

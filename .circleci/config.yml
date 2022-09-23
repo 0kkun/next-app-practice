@@ -52,6 +52,19 @@ jobs:
             yarn lint
       - save_yarn
 
+  test:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_yarn
+      - run: 
+          name: Run test
+          command: |
+            cd frontend
+            yarn test
+      - save_yarn
+
 workflows:
   pull-request:
     jobs:

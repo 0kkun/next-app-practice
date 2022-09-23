@@ -9,3 +9,13 @@ services:
     command: sh -c "yarn dev"
     ports:
       - "3000:3000"
+
+  backend:
+    build:
+      context: ./.docker/backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/usr/src/app
+    command: sh -c "yarn start"
+    ports:
+      - "8000:8000"

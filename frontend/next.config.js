@@ -15,5 +15,18 @@ const nextConfig = {
     }
     return compilerConfig
   })(),
+  // rewrites機能を使ってCORSでのCookie送信を避けることができる
+  // 例) http://nextjsのホスト/api/proxy/signinとリクエストを送った場合に は http://json-serverのホスト/signinと変換される
+  async rewrites() {
+    return [
+      {
+        // ex. /api/proxy
+        source: `${process.env.NEXT_PUBLIC_API_BASE_PATH}/:match*`,
+        // ex. http://localhost:8000
+        destination: `${process.env.API_BASE_URL}/:match*`,
+      },
+    ]
+  },
 }
+
 module.exports = nextConfig

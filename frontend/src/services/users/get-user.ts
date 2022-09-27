@@ -7,11 +7,11 @@ export type GetUserParams = {
 }
 
 /**
-* ユーザーAPI(個別取得)
-* @param context APIコンテキスト
-* @param params パラメータ
-* @returns ユーザー
-*/
+ * ユーザーAPI(個別取得)
+ * @param context APIコンテキスト
+ * @param params パラメータ
+ * @returns ユーザー
+ */
 const getUser = async (
   context: ApiContext,
   { id }: GetUserParams,

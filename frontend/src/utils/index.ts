@@ -11,7 +11,7 @@ export const fetcher = async (
     const error = new Error(
       errorRes.message ?? 'APIリクエスト中にエラーが発生しました',
     )
-    throw error 
+    throw error
   }
   return res.json()
 }

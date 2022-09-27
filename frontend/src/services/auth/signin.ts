@@ -3,7 +3,7 @@ import { ApiContext, User } from '../../types/data'
 import { fetcher } from '../../utils'
 
 export type SigninParams = {
-  // ユーザー名。サンプルユーザーのユーザー名は "user" 
+  // ユーザー名。サンプルユーザーのユーザー名は "user"
   username: string
   // パスワード。サンプルユーザーのパスワードは "password"
   password: string

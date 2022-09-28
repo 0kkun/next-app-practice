@@ -1,6 +1,6 @@
 // typesは後ほど定義
-import { ApiContext, User } from '../../types/data'
-import { fetcher } from '../../utils'
+import { ApiContext, User } from 'types/data'
+import { fetcher } from 'utils'
 
 export type SigninParams = {
   // ユーザー名。サンプルユーザーのユーザー名は "user"

@@ -37,3 +37,11 @@ backend-start:
 .PHONY: frontend-start
 frontend-start:
 	cd backend; yarn dev
+
+.PHONY: storybook
+storybook:
+	cd frontend; yarn storybook
+
+.PHONY: jest
+jest:
+	cd frontend; yarn test

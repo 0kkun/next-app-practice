@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "next lint --fix",
+    "lint": "next lint --dir src",
+    "format": "next lint --fix --dir src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest --passWithNoTests"

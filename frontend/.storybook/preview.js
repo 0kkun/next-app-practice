@@ -4,7 +4,7 @@ import { theme } from '../src/themes'
 import * as NextImage from 'next/image'
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -13,7 +13,6 @@ export const parameters = {
   },
 }
 
-//  簡易のリセット CSS
 export const GlobalStyle = createGlobalStyle`
   html,
   body,
@@ -21,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
   * {
     box-sizing: border-box;
@@ -41,16 +40,14 @@ addDecorator((story) => (
   </ThemeProvider>
 ))
 
-// next/imageの差し替え。Storybook 上では動作しないため、強制的に通常の画像と差し替える。
+// next/imageの差し替え
 const OriginalNextImage = NextImage.default;
+
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => typeof props.src === 'string' ? (
-    <OriginalNextImage {...props} unoptimized blurDataURL={props.src} /> ):(
+    <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
+  ) : (
     <OriginalNextImage {...props} unoptimized />
   ),
-})
-Object.defineProperty(NextImage, '__esModule', {
-  configurable: true,
-  value: true,
 })

@@ -191,3 +191,5 @@ Button.defaultProps = {
   lineHeight: 'inherit',
   fontSize: 'inherit',
 }
+
+export default Button

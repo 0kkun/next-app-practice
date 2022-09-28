@@ -3,18 +3,14 @@ const path = require('path')
 
 module.exports = {
   stories: [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-postcss',
   ],
-  framework: "@storybook/react",
-  core: {
-    "builder": "@storybook/builder-webpack5"
-  },
   staticDirs: ['public'],
   babel: async options => ({
     ...options,
@@ -28,7 +24,7 @@ module.exports = {
     config.resolve.plugins = [
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, '../tsconfig.json')
-      }), 
+      }),
     ];
     return config
   },

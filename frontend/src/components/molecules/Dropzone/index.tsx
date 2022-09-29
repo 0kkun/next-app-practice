@@ -1,3 +1,9 @@
+// このコンポーネントでは1つの状態をuseStateで管理。
+// isFocusedはドラッグ状態でマウスポインタが要素の範囲内に入ってきた際に枠線の色を変更するために使用。
+// ドラッグ&ドロップのイベントをハンドルするため、onDrag、onDragOver、onDragLeave、 onDragEnterを使用。
+// これらのイベンドハンドラは要素の範囲内のマウスポインタのドラッグ状態を把握し、ファイルがドロップされた際に hidden状態のダミーインプットに値をセットする。
+// ダミーインプットを用意する理由としては、クリック時にファイル選択ダイアログを表示するため。
+
 import React, { useState, useRef, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { CloudUploadIcon } from 'components/atoms/IconButton'

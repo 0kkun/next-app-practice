@@ -1,3 +1,5 @@
+// このコンポーネントは買い物カートページの商品画像、商品名、価格を表示します
+
 import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'

@@ -121,8 +121,6 @@ export const getStaticProps: GetStaticProps = async () => {
     getAllProducts(context, { category: 'shoes', limit: 6, page: 1 }),
   ])
 
-  console.log(clothesProducts)
-
   return {
     props: {
       clothesProducts,

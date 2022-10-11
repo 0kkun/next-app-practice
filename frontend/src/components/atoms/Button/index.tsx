@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components'
-import { Responsive } from 'types/data'
+import { Responsive } from 'types'
 import {
   toPropValue,
   Color,
@@ -9,8 +9,10 @@ import {
   LineHeight,
   Space,
 } from 'utils/styles'
+
 // ボタンのバリアント
 export type ButtonVariant = 'primary' | 'secondary' | 'danger'
+
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
   fontSize?: Responsive<FontSize>
@@ -44,7 +46,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     disabled?: {
       backgroundColor?: Responsive<Color>
     }
-  } 
+  }
 }
 
 const variants = {
@@ -93,10 +95,9 @@ const variants = {
 }
 
 /**
-* ボタン
-* バリアント、色、タイポグラフィ、ボーダー、レイアウト、スペース
-* 関連のPropsを追加
-*/
+ * ボタン
+ * バリアント、色、タイポグラフィ、レイアウト、スペース関連のPropsを追加
+ */
 const Button = styled.button<ButtonProps>`
   ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
     // バリアントのスタイルの適用
@@ -120,7 +121,7 @@ const Button = styled.button<ButtonProps>`
               variants[variant].pseudoClass.hover.backgroundColor,
               theme,
             )}
-          }`.replaceAll('\n', ''),
+          }`,
         )
       !pseudoClass &&
         styles.push(
@@ -130,7 +131,7 @@ const Button = styled.button<ButtonProps>`
               variants[variant].pseudoClass.disabled.backgroundColor,
               theme,
             )}
-          }`.replaceAll('\n', ''),
+          }`,
         )
       return styles.join('\n')
     }
